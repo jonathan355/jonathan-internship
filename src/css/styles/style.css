@@ -11139,7 +11139,7 @@ section .color-overlay {
 }
 
 .left-arrow {
-  left: 20px;
+  left: 10px;
 }
 
 .right-arrow {
@@ -13284,6 +13284,7 @@ a.read_more i {
 background-color: #e0e0e0;
 border-radius: 8px;
 overflow: hidden;
+
 }
 
 .skeleton-image {

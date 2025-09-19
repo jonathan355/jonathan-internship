@@ -40,7 +40,7 @@ useEffect (() => {
       const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`);
       setCollection(response.data);
     } catch (error) {
-      console.error('Error fetching movie data:', error);
+      console.error('Error fetching Hot Collection:', error);
     } finally {
       setLoading(false);
     }
@@ -53,7 +53,7 @@ if(loading) {
   return (
     <div className="container">
     <div className="row">
-    <div className="slider-conatiner" style={{position:'relative'}}>
+    <div className="slider-container" style={{position:'relative'}}>
       <div className="col-lg-12">
             <div className="text-center">
               <h2>Hot Collections</h2>
@@ -134,7 +134,7 @@ if (!collection.length){
 
 const goToPrevious = () => {
   if (instanceRef.current) {
-    instanceRef.current.next();
+    instanceRef.current.prev();
   }
 };
 
@@ -187,10 +187,9 @@ const goToNext = () => {
          <button
           onClick={goToPrevious}
           className="arrow left-arrow"
-          disabled={currentSlide === 0}
           style={{
             position: 'absolute',
-            left: '-30px',
+            left: '-10px',
             top: '50%',
             transform: 'translateY(-50%)',
             zIndex: 10,
@@ -208,10 +207,9 @@ const goToNext = () => {
          <button
           onClick={goToNext}
           className="arrow right-arrow"
-          disabled={collection.length <= 4 || currentSlide >= collection.length - 4 }
           style={{
             position: 'absolute',
-            right: '-30px',
+            right: '-10px',
             top: '50%',
             transform: 'translateY(-50%)',
             zIndex: 10,
