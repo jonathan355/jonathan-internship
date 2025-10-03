@@ -125,9 +125,9 @@ const getFilteredItems = () => {
   const handleFilterChange = (event) => {
     const newFilter = event.target.value;
     setFilterType(newFilter);
-    setDisplayedItems(8);
+    
   };
-/*NEED TO CHANGE THIS FILTER HANDLER, there could be 8, 12, or 16 items being filtered */
+
 
 const handleLoadMore = () => {
   setLoadingMore(true);
@@ -220,7 +220,7 @@ if(loading) {
           <div className="nft__item">
             <div className="author_list_pp">
               <Link
-                to="/author"
+                to={`/author/${item.authorId}`}
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
               >
