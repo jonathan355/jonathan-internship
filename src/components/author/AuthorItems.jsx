@@ -7,6 +7,7 @@ const AuthorItems = ({authorData}) => {
   const { authorId } = useParams();
   const [ authorItems, setAuthorItems ] = useState ([]);
   const [ loading, setLoading ] = useState(true);
+ 
 
 useEffect (() => {
     const fetchAuthorItems = async() => {

@@ -11,6 +11,16 @@ const Author = () => {
   const {authorId} = useParams();
   const [authorData, setAuthorData] = useState(null);
   const [loading, setLoading] = useState(true);
+   const [isFollowing, setIsFollowing] = useState(false);
+
+  const handleFollowClick = () => {
+    setIsFollowing(!isFollowing);
+
+    setAuthorData(prev => ({
+      ...prev,
+      followers: isFollowing ? prev.followers - 1 : prev.followers + 1
+    }));
+  };
 
   useEffect (() => {
     const fetchAuthorItems = async() => {
@@ -109,7 +119,7 @@ const Author = () => {
                           {authorData.authorName}
                           <span className="profile_username">@{authorData.tag}</span>
                           <span id="wallet" className="profile_wallet">
-                            UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
+                          {authorData.address}
                           </span>
                           <button id="btn_copy" title="Copy Text">
                             Copy
@@ -121,9 +131,11 @@ const Author = () => {
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
                       <div className="profile_follower">{authorData.followers} followers</div>
-                      <Link to="#" className="btn-main">
-                        Follow
-                      </Link>
+                      <button onClick={handleFollowClick}
+                                      className="btn-main">
+                                      {isFollowing ? 'Unfollow' : 'Follow'}
+                      </button>
+                      
                     </div>
                   </div>
                 </div>
