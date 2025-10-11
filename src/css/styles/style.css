@@ -11128,6 +11128,25 @@ section .color-overlay {
   padding-bottom: 0;
 }
 
+.arrow {
+  position: absolute;
+  top: 100%;
+  background-color: rgba(255,255,255,0.7);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+
 p {
   margin-bottom: 20px;
 }
@@ -13261,6 +13280,46 @@ a.read_more i {
   background: #ffffff;
 }
 
+.skeleton {
+background-color: #e0e0e0;
+border-radius: 8px;
+overflow: hidden;
+
+}
+
+.skeleton-image {
+
+background-color: #ccc;
+border-radius: 8px;
+animation: pulse 1.5s infinite;
+}
+
+.skeleton-author-image {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-title {
+  width: 80%;
+  height: 20px;
+  background-color: #ccc;
+  margin: 10px 0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-code {
+  width: 50%;
+  height: 16px;
+  background-color: #ccc;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+
 .nft_coll_pp i {
   font-size: 10px;
   color: #ffffff;
@@ -15145,7 +15204,7 @@ a.btn-slider:hover {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 
 .testi-slider .flex-control-paging li a {
@@ -16650,6 +16709,7 @@ img {
   }
 }
 
+
 .skeleton-box {
   display: inline-block;
   height: 1em;
@@ -16706,11 +16766,15 @@ img {
   }
 }
 @keyframes shimmer {
+
+  0% {
+    transform: translateX(0%);
+  }
+
   100% {
     transform: translateX(300px);
   }
 }
-
 
 .nft-image {
   height: 100%;
