@@ -16658,6 +16658,30 @@ img {
   background-color: #dddbdd;
 }
 
+.skeleton-fast {
+  
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-fast::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 0.8s infinite;
+}
+
 .skeleton-box::after {
   position: absolute;
   top: 0;
@@ -16683,9 +16707,10 @@ img {
 }
 @keyframes shimmer {
   100% {
-    transform: translateX(100%);
+    transform: translateX(300px);
   }
 }
+
 
 .nft-image {
   height: 100%;
