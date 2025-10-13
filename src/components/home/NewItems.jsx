@@ -257,7 +257,7 @@ if (!newItem.length){
                     </div>
                   </div>
 
-                  <Link to="/item-details">
+                  <Link to={`/itemDetails/${item.nftId}`}>
                     <img
                       src={item.nftImage}
                       className="lazy nft__item_preview"
@@ -266,7 +266,7 @@ if (!newItem.length){
                   </Link>
                 </div>
                 <div className="nft__item_info">
-                  <Link to="/item-details">
+                  <Link to={`/itemDetails/${item.nftId}`}>
                     <h4>{item.title}</h4>
                   </Link>
                   <div className="nft__item_price">{item.price} ETH</div>

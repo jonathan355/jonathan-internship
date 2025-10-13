@@ -163,7 +163,7 @@ const goToNext = () => {
           <div className="keen-slider__slide" key={index}>
               <div className="nft_coll">
                 <div className="nft_wrap">
-                  <Link to="/item-details">
+                  <Link to={`/itemDetails/${item.nftId}`}>
                     <img src={item.nftImage} className="lazy img-fluid" alt={item.title} />
                   </Link>
                 </div>

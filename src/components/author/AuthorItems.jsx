@@ -7,7 +7,18 @@ const AuthorItems = ({authorData}) => {
   const { authorId } = useParams();
   const [ authorItems, setAuthorItems ] = useState ([]);
   const [ loading, setLoading ] = useState(true);
- 
+  const [isFollowing, setIsFollowing] = useState(false);
+
+  const handleFollowClick = () => {
+    setIsFollowing(!isFollowing);
+
+    authorData(prev => ({
+      ...prev,
+      followers: isFollowing ? prev.followers - 1 : prev.followers 
+    }) 
+
+    )
+  }
 
 useEffect (() => {
     const fetchAuthorItems = async() => {
@@ -87,7 +98,7 @@ useEffect (() => {
                       </div>
                     </div>
                   </div>
-                  <Link to="/item-details">
+                  <Link to={`/itemDetails/${item.nftId}`}>
                     <img
                       src={item.nftImage}
                       className="lazy nft__item_preview"
@@ -96,7 +107,7 @@ useEffect (() => {
                   </Link>
                 </div>
                 <div className="nft__item_info">
-                  <Link to="/item-details">
+                  <Link to={`/itemDetails/${item.nftId}`}>
                     <h4>{item.title}</h4>
                   </Link>
                   <div className="nft__item_price">{item.price} ETH</div>
