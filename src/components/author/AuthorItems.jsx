@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from 'axios'
+import axios from 'axios';
 
 const AuthorItems = ({authorData}) => {
 
@@ -68,7 +68,10 @@ useEffect (() => {
       <div className="tab-1">
         <div className="row">
           {authorItems.map((item, index) => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={item.nftId || index}>
+            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" 
+                 key={item.nftId || index}
+                 data-aos="fade-in"
+                 >
               <div className="nft__item">
                 <div className="author_list_pp">
                   <Link to="">

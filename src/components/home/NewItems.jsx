@@ -218,7 +218,9 @@ if (!newItem.length){
             </div>
           </div>
 
-          <div className="slider-container" style={{ position: 'relative' }} >
+          <div className="slider-container"
+               style={{ position: 'relative' }}
+               data-aos="fade-in" >
             <div ref={sliderRef} className="keen-slider">
           {newItem.map((item, index) => (
             <div className="keen-slider__slide" key={index}>

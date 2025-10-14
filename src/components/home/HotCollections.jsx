@@ -161,7 +161,9 @@ const goToNext = () => {
         <div ref={sliderRef} className="keen-slider">
           {collection.map((item, index) => (
           <div className="keen-slider__slide" key={index}>
-              <div className="nft_coll">
+              <div className="nft_coll"
+              data-aos="fade-in"
+              >
                 <div className="nft_wrap">
                   <Link to={`/itemDetails/${item.nftId}`}>
                     <img src={item.nftImage} className="lazy img-fluid" alt={item.title} />

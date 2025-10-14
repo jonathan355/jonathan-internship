@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { useParams,Link } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios';
+import AOS from 'aos';
 
 
 
@@ -33,6 +34,13 @@ const ItemDetails = () => {
     fetchItemDetails();
    }
   }, [nftId]);
+
+   useEffect(() => {
+      if (!loading && nftId) {
+          AOS.refreshHard();
+        }
+      }, [loading, nftId]);
+  
 
   if (loading) {
     return (
@@ -134,8 +142,12 @@ const ItemDetails = () => {
         <div id="top"></div>
         <section aria-label="section" className="mt90 sm-mt-0">
           <div className="container">
-            <div className="row">
-              <div className="col-md-6 text-center">
+            <div className="row"
+                 data-aos="fade-in"
+            >
+              <div className="col-md-6 text-center"
+                   
+              >
                 <img
                   src={item.nftImage}
                   className="img-fluid img-rounded mb-sm-30 nft-image"
@@ -143,7 +155,9 @@ const ItemDetails = () => {
                 />
               </div>
               <div className="col-md-6">
-                <div className="item_info">
+                <div className="item_info"
+                     
+                >
                   <h2>{item.title} #{item.tag}</h2>
 
                   <div className="item_info_counts">

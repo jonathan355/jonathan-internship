@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
-
 import axios from 'axios';
+import AOS from 'aos';
 
 
 const Author = () => {
@@ -25,7 +25,7 @@ const Author = () => {
   useEffect (() => {
     const fetchAuthorItems = async() => {
       try{
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 3000));
         const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`);
         setAuthorData(response.data);
          } catch (error) {
@@ -36,6 +36,12 @@ const Author = () => {
     };
     fetchAuthorItems();
   }, [authorId]);
+
+  useEffect(() => {
+    if (!loading && authorData) {
+        AOS.refreshHard();
+      }
+    }, [loading, authorData]);
 
   if (loading) {
   return(
@@ -95,7 +101,6 @@ const Author = () => {
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
-
         <section
           id="profile_banner"
           aria-label="section"
@@ -103,14 +108,15 @@ const Author = () => {
           data-bgimage="url(images/author_banner.jpg) top"
           style={{ background: `url(${AuthorBanner}) top` }}
         ></section>
-
         <section aria-label="section">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="d_profile de-flex">
                   <div className="de-flex-col">
-                    <div className="profile_avatar">
+                    <div className="profile_avatar"
+                         data-aos="fade-in"
+                         >
                       <img src={authorData.authorImage} alt="" />
 
                       <i className="fa fa-check"></i>
