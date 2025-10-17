@@ -36,7 +36,6 @@ useEffect (() => {
 
   const fetchHotCollections = async() => {
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
       const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`);
       setCollection(response.data);
     } catch (error) {
