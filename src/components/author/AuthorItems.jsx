@@ -23,7 +23,7 @@ const AuthorItems = ({authorData}) => {
 useEffect (() => {
     const fetchAuthorItems = async() => {
       try{
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         const response = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`);
         console.log("API Response:", response.data);
         setAuthorItems(response.data.nftCollection || []);
